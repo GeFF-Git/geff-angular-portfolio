@@ -36,10 +36,12 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/tailwind.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -110,5 +112,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "3ab50749-f27c-441b-bc72-5cc97ef8fd01"
   }
 }

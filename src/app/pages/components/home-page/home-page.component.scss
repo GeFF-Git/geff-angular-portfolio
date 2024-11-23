@@ -1,0 +1,48 @@
+:host{
+
+}
+.home-page{
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    .content-1{
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 5rem;
+        .c1-1{
+        }
+        .c1-2{
+            position: relative;
+            min-width: 20rem;
+            div{
+                position: absolute;
+                top: 0rem;
+                left: 4.5rem;
+                color: teal;
+            }
+        }
+        // &:hover{
+        //     color: aqua;
+        // }
+    }
+
+    .content-2{
+        img{
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+}
+
+
+// .timeline-yr {
+//     background: #474559;
+//     border-radius: 100%;
+//     position: absolute;
+//     width: 75px;
+//     height: 75px;
+//     line-height: 75px;
+//     text-align: center;
+// }
