@@ -1,0 +1,61 @@
+
+:host{
+    overflow: hidden;
+}
+
+:root{
+    overflow: hidden;
+}
+.small-text {
+    color: #5b5b5b;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50px;
+    letter-spacing: 0.2px;
+}
+.home-page{
+    // overflow: hidden;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 2rem;
+    width: 100%;
+    .content-1{
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 10rem;
+        width: 45vw;
+        .c1-2{
+            position: relative;
+            div{
+                position: absolute;
+                top: 0rem;
+                left: 3rem;
+                color: teal;
+            }
+        }
+        // &:hover{
+        //     color: aqua;
+        // }
+    }
+
+    .content-2{
+        width: 45vw;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+
+// .timeline-yr {
+//     background: #474559;
+//     border-radius: 100%;
+//     position: absolute;
+//     width: 75px;
+//     height: 75px;
+//     line-height: 75px;
+//     text-align: center;
+// }

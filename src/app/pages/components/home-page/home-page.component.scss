@@ -1,37 +1,82 @@
-:host{
-
+:root {
+    overflow: hidden;
 }
-.home-page{
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 2rem;
-    .content-1{
-        font-size: 2rem;
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 5rem;
-        .c1-1{
-        }
-        .c1-2{
-            position: relative;
-            min-width: 20rem;
-            div{
-                position: absolute;
-                top: 0rem;
-                left: 4.5rem;
-                color: teal;
-            }
-        }
-        // &:hover{
-        //     color: aqua;
-        // }
-    }
 
-    .content-2{
-        img{
-            width: 10rem;
-            height: 10rem;
+:host{
+    overflow: hidden;
+}
+
+.small-text {
+    color: #5b5b5b;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50px;
+    letter-spacing: 0.2px;
+}
+
+.panel {
+    width: 100%; /* Each section takes full viewport width */
+    height: 100%; /* Full container height */
+}
+
+#section-container {
+    // overflow: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 2rem;
+    // flex-direction: column;
+    // transform: translateX(0); /* Start at initial position */
+  }
+
+//   #skills, #projects{
+//     width: 100%;
+//     height: 100%;
+//   }
+
+.scroll-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    transform: translateX(0);
+    // overflow: hidden;
+    .home-page {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2rem;
+        width: 100%;
+
+        .content-1 {
+            font-size: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 10rem;
+            width: 45vw;
+            overflow: hidden;
+
+            .c1-2 {
+                position: relative;
+
+                div {
+                    position: absolute;
+                    top: 0rem;
+                    left: 3rem;
+                    color: teal;
+                }
+            }
+
+            // &:hover{
+            //     color: aqua;
+            // }
+        }
+
+        .content-2 {
+            width: 45vw;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }

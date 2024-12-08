@@ -1,7 +1,12 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
-import { of } from 'rxjs';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild, viewChild } from '@angular/core';
+import { Scroll } from '@angular/router';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import _gsap from 'gsap/gsap-core';
+// Horizan
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-home-page',
@@ -26,18 +31,101 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
   strings : string[] = ['a ui-developer', 'an api-developer', 'a photographer'];
   skills : string[] = [];
   currentIndex = 0;
-  currentSkill : string = 'Excited';
+  currentSkill : string = 'Geoffrey';
   interval !: NodeJS.Timeout;
   timeout !: NodeJS.Timeout;
-  isShowText = false;
+  isShowText = true;
+  @ViewChild('scrollContainer', {static: true}) scrollContainer !: ElementRef;
+  @ViewChild('scrollContent', { static: true }) scrollContent!: ElementRef;
+  @ViewChild('sectionContainer', {static: true}) sectionContainer !: ElementRef;
+
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.loadSKills();
     }
   }
   ngAfterViewInit(): void {
-    // this.loadSKills();
+    // const scrollContainer = this.scrollContainer.nativeElement;
+    // const scrollContent = this.scrollContent.nativeElement;
+
+    // Get the total width of the scrollable content
+    // const contentWidth = scrollContainer.scrollWidth;
+    // const viewportWidth = window.innerWidth;
+    // gsap.defaults({ease: 'none', duration: 2, x: ''});
+    // const sectionContainer = ''
+    // gsap.utils.toArray<HTMLElement>(this.sectionContainer).forEach((panel, i) => {
+    //   ScrollTrigger.create({
+    //     trigger: panel,
+    //     start: "top top",
+    //     pin: true,
+    //     pinSpacing: false
+    //   })
+    // });
+    // const tl = gsap.timeline();
+    // tl.from("#about", {xPercent: 0})
+    // .from("#skills", {xPercent: 0})
+    // .from("#projects", {xPercent: 0})
+
+
+    // // Create ScrollTrigger
+    // ScrollTrigger.create({
+    //   animation: tl,
+    //   trigger: scrollContainer,
+    //   start: "top top",
+    //   end: () => `+=${contentWidth}`,
+    //   scrub: true,
+    //   pin: true,
+    //   anticipatePin: 1
+    // })
+
+    // Set up the ScrollTrigger
+    // gsap.to(scrollContainer, {
+    //   x: -(contentWidth - viewportWidth), // Move content to the left
+    //   ease: 'none',
+    //   scrollTrigger: scroll
+    // });  
+    // if (isPlatformBrowser(this.platformId)) {
+    //   const sectionContainer = this.sectionContainer.nativeElement;
+    //   const scrollContainer = this.scrollContainer.nativeElement;
+      
+    //   const totalWidth = sectionContainer.scrollWidth - scrollContainer.offsetWidth;
+    //   gsap.to(sectionContainer, {
+    //     // x: () => -totalWidth, // Move the container left as user scrolls vertically
+    //     x: () => -totalWidth,
+    //     ease: 'none',
+    //     scrollTrigger: ScrollTrigger.create({
+    //       trigger: scrollContainer,
+    //       start: 'top top',
+    //       end: () => `+=${sectionContainer.scrollWidth}`, // End when the horizontal scroll is complete
+    //       scrub: true,
+    //       pin: true, // Pins the container during the scroll
+    //     }),
+    //   });
+    // }
+    if (isPlatformBrowser(this.platformId)) {
+      gsap.defaults({ease: 'none', duration: 100});
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('#section-container').forEach((section : any) => {
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'end end',
+            end: () => "+=" + (section.offsetWidth),
+            pin: true,
+            scrub: true,
+            anticipatePin: 1,
+            markers: true
+          }
+        });
+        tl
+        .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0}, {xPercent: 0}, "+=3")
+          // ...and the image the opposite way (at the same time)
+        .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0}, {xPercent: -100}, "+=10")
+        .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
+      });
+    }
   }
+
   loadSKills(){
     setInterval(() => {
       this.isShowText = false;

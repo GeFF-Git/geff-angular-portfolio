@@ -1,5 +1,5 @@
-<div class="h-screen">
-    <app-header></app-header>
+<div class="h-screen template">
+    <app-header (navigateToAbout)="onNavigateToAbout()" (navigateToSkills)="onNavigateToSkills()"></app-header>
     <div class="content">
         <router-outlet></router-outlet>
         <!-- <app-footer></app-footer> -->

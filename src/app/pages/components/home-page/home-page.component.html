@@ -1,18 +1,39 @@
-<div class="home-page">
-    <div class="content-1">
-        <div class="transition-all c1-1 font-extrabold">
-            Geff Shelby
-        </div>
-        <div class="c1-2">
-            I am @if (isShowText) {
-
-                <div [@fadeIn]>
-                    {{currentSkill}}
+<div class="scroll-container" #scrollContainer>
+    <section id="home" class="">
+        <div class="home-page">
+            <div class="content-1 p-5">
+                <div class="small-text">
+                    Welcome to my portfolio website!!
                 </div>
-            }
+                <div class="transition-all c1-1 font-extrabold">
+                    Geff Shelby
+                </div>
+                <div class="c1-2">
+                    I'm @if (isShowText) {
+
+                    <div [@fadeIn]>
+                        {{currentSkill}}
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="content-2">
+                <img src="assets/u1.svg" alt="Hello">
+            </div>
         </div>
-    </div>
-    <div class="content-2">
-        <img src="assets/thomas-1.jpg" alt="Hello">
-    </div>
+    </section>
+</div>
+
+<div id="section-container" #sectionContainer>
+    <section id="about" class="panel about-section">
+        <app-about-page></app-about-page>
+    </section>
+    <section id="skills" class="panel skills-section">
+        <!-- <app-skills></app-skills> -->
+        <app-about-page></app-about-page>
+    </section>
+    <section id="projects" class="panel projects-section">
+        <!-- <app-projects></app-projects> -->
+        <app-about-page></app-about-page>
+    </section>
 </div>
