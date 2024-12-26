@@ -1,9 +1,9 @@
-:root {
+:host{
     overflow: hidden;
 }
 
-:host{
-    overflow: hidden;
+:root{
+  overflow: hidden;
 }
 
 .small-text {
@@ -20,7 +20,7 @@
 }
 
 #section-container {
-    // overflow: scroll;
+    // overflow-x: auto;
     display: flex;
     flex-wrap: nowrap;
     padding: 2rem;
@@ -38,7 +38,7 @@
     height: 100vh;
     position: relative;
     transform: translateX(0);
-    // overflow: hidden;
+    overflow: hidden;
     .home-page {
         margin-top: 1rem;
         display: flex;

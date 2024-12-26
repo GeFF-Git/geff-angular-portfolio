@@ -3,21 +3,21 @@ import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 
 @Component({
-  selector: 'app-about-page',
-  templateUrl: './about-page.component.html',
-  styleUrl: './about-page.component.scss',
-  animations: [trigger('fadeIn', [
-    transition(':enter', [
-      style({opacity : 0, transform : 'translateY(2rem)'}),
-      animate('600ms ease-in', style({opacity : 1, transform : 'translateY(0)'}))
-    ]
-  ),
-  transition(':leave', [
-    // style({opacity : 0, transform : 'translateY(-2rem)'}),
-    animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.1rem)' })),
-  ]),
-  ])
-  ]
+    selector: 'app-about-page',
+    templateUrl: './about-page.component.html',
+    styleUrl: './about-page.component.scss',
+    animations: [trigger('fadeIn', [
+            transition(':enter', [
+                style({ opacity: 0, transform: 'translateY(2rem)' }),
+                animate('600ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))
+            ]),
+            transition(':leave', [
+                // style({opacity : 0, transform : 'translateY(-2rem)'}),
+                animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.1rem)' })),
+            ]),
+        ])
+    ],
+    standalone: false
 })
 export class AboutPageComponent implements AfterViewInit,OnInit,OnDestroy {
   constructor(private cdr : ChangeDetectorRef, @Inject(PLATFORM_ID) private platformId : object){}

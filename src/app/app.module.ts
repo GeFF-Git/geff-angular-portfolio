@@ -12,19 +12,27 @@ import { HomePageComponent } from './pages/components/home-page/home-page.compon
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+const myModules = [
+  BrowserModule,
+  AppRoutingModule,
+  RouterModule,
+  BrowserAnimationsModule
+];
 @NgModule({
+  exports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    BrowserAnimationsModule
+  ],
   declarations: [
     AppComponent,
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    BrowserAnimationsModule
-  ],
+  imports: [...myModules],
   providers: [
     provideClientHydration()
   ],

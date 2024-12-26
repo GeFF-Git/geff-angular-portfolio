@@ -9,24 +9,24 @@ import _gsap from 'gsap/gsap-core';
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss',
-  animations: [trigger('fadeIn', [
-    transition(':enter', [
-      style({opacity : 0, transform : 'translateY(2rem)'}),
-      animate('600ms ease-in', style({opacity : 1, transform : 'translateY(0)'}))
-    ]
-  ),
-  transition(':leave', [
-    // style({opacity : 0, transform : 'translateY(-2rem)'}),
-    animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.1rem)' })),
-  ]),
-  ])
-  ]
+    selector: 'app-home-page',
+    templateUrl: './home-page.component.html',
+    styleUrl: './home-page.component.scss',
+    animations: [trigger('fadeIn', [
+            transition(':enter', [
+                style({ opacity: 0, transform: 'translateY(2rem)' }),
+                animate('600ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))
+            ]),
+            transition(':leave', [
+                // style({opacity : 0, transform : 'translateY(-2rem)'}),
+                animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.1rem)' })),
+            ]),
+        ])
+    ],
+    standalone: false
 })
 export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
-  constructor(private cdr : ChangeDetectorRef, @Inject(PLATFORM_ID) private platformId : object){}
+  constructor(@Inject(PLATFORM_ID) private platformId : object){}
 
   strings : string[] = ['a ui-developer', 'an api-developer', 'a photographer'];
   skills : string[] = [];
@@ -83,11 +83,11 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
     //   x: -(contentWidth - viewportWidth), // Move content to the left
     //   ease: 'none',
     //   scrollTrigger: scroll
-    // });  
+    // });
     // if (isPlatformBrowser(this.platformId)) {
     //   const sectionContainer = this.sectionContainer.nativeElement;
     //   const scrollContainer = this.scrollContainer.nativeElement;
-      
+
     //   const totalWidth = sectionContainer.scrollWidth - scrollContainer.offsetWidth;
     //   gsap.to(sectionContainer, {
     //     // x: () => -totalWidth, // Move the container left as user scrolls vertically

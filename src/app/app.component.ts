@@ -3,10 +3,11 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import * as Three from 'Three';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  animations: [trigger('popup', [])]
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    animations: [trigger('popup', [])],
+    standalone: false
 })
 export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
